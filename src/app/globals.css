@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --mesh-gradient-1: radial-gradient(circle at 20% 50%, rgba(109, 74, 255, 0.08) 0%, transparent 50%);
+  --mesh-gradient-2: radial-gradient(circle at 80% 20%, rgba(200, 180, 255, 0.12) 0%, transparent 50%);
+  --mesh-gradient-3: radial-gradient(circle at 50% 80%, rgba(255, 220, 180, 0.1) 0%, transparent 50%);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background-color: #faf8f5;
+  color: #1a1a2e;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: rgba(109, 74, 255, 0.15);
+  color: #1a1a2e;
+}
+
+/* Grain overlay */
+.grain-overlay::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  pointer-events: none;
+  z-index: 9999;
+  animation: grain 0.5s steps(4) infinite;
+}
+
+/* Mesh gradient backgrounds */
+.mesh-gradient {
+  background:
+    var(--mesh-gradient-1),
+    var(--mesh-gradient-2),
+    var(--mesh-gradient-3);
+  background-blend-mode: normal;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+/* Soft shadows */
+.soft-shadow {
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.04),
+    0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.soft-shadow-lg {
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.06),
+    0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+/* Text gradient */
+.text-gradient {
+  background: linear-gradient(135deg, #6d4aff, #a99cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(109, 74, 255, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(109, 74, 255, 0.4);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Smooth number styling */
+.font-mono-numbers {
+  font-variant-numeric: tabular-nums;
+}
