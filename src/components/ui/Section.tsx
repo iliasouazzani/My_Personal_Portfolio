@@ -26,28 +26,28 @@ export function Section({
   fullWidth = false,
 }: SectionProps) {
   return (
-    <section id={id} className={cn('relative py-24 md:py-32', className)}>
-      <div className={cn(!fullWidth && 'mx-auto max-w-7xl px-6 md:px-8 lg:px-12')}>
+    <section id={id} className={cn('relative py-12 md:py-16', className)}>
+      <div className={cn(!fullWidth && 'mx-auto max-w-5xl')}>
         {(label || title) && (
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
+            viewport={{ once: true, margin: '-80px' }}
             variants={fadeInUp}
-            className="mb-16 md:mb-20"
+            className="mb-8 md:mb-10"
           >
             {label && (
-              <Typography variant="label" className="mb-4 block text-violet-500">
+              <Typography variant="label" className="mb-3 block text-violet-500 text-xs">
                 {label}
               </Typography>
             )}
             {title && (
-              <Typography variant="h2" className="text-gray-900">
+              <Typography variant="h2" className="text-gray-900 text-2xl md:text-3xl">
                 {title}
               </Typography>
             )}
             {subtitle && (
-              <Typography variant="body" className="mt-4 max-w-2xl">
+              <Typography variant="body" className="mt-2 max-w-2xl text-sm">
                 {subtitle}
               </Typography>
             )}
