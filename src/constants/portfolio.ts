@@ -41,7 +41,7 @@ export const portfolioData: PortfolioData = {
         "Built a website for selling electronics (tablets, phones, headsets, PlayStations) as part of the internship.",
         "The website was \"vibe-coded\" (built quickly with heavy AI assistance) using React, PHP, Symfony, JavaScript, and Docker.",
         "Personal hands-on contribution: coding the website's chatbot, built with NLP and a set of predefined questions/answers.",
-        "The website has an admin account/dashboard showing all products and their order status — Sold, In Shipping, Shipped, and Pending. This admin system runs via the OpenClaw AI agent, which distributes the computational load across all 3 linked Linux machines.",
+        "The website has an admin account/dashboard showing all products and their order status: Sold, In Shipping, Shipped, and Pending. This admin system runs via the OpenClaw AI agent, which distributes the computational load across all 3 linked Linux machines.",
       ],
       tags: [
         "Linux",
@@ -58,7 +58,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       id: "hackathon-child-guard",
-      title: "Hackathon — Child Guard Project",
+      title: "Child Guard Project",
       subtitle: "Hedera Hashgraph Hackathon",
       period: "Event",
       type: "hackathon",
@@ -74,7 +74,7 @@ export const portfolioData: PortfolioData = {
     {
       id: "freelance-content",
       title: "Freelance Video Editor & Content Manager",
-      subtitle: "TikTok — @panamixbra7",
+      subtitle: "TikTok (@panamixbra7)",
       period: "4 Months",
       type: "freelance",
       description: [
@@ -92,7 +92,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       id: "volunteering-stadium",
-      title: "Volunteer — Event Operations",
+      title: "Event Operations Volunteer",
       subtitle: "Prince Moulay Abdellah Stadium, Rabat, Morocco",
       period: "Multiple Events",
       type: "volunteering",
@@ -113,7 +113,7 @@ export const portfolioData: PortfolioData = {
   education: [
     {
       degree: "Diploma in Artificial Intelligence, specialized in Chatbot Development",
-      period: "2024 — 2026",
+      period: "2024–2026",
     },
     {
       degree: "Baccalaureate in Physical Sciences",
@@ -133,6 +133,13 @@ export const portfolioData: PortfolioData = {
     { name: "JavaScript", category: "technical" },
     { name: "Docker", category: "technical" },
     { name: "Video Editing", category: "technical" },
+    { name: "TypeScript", category: "technical" },
+    { name: "Next.js", category: "technical" },
+    { name: "Tailwind CSS", category: "technical" },
+    { name: "Framer Motion", category: "technical" },
+    { name: "Three.js / WebGL", category: "technical" },
+    { name: "Git & GitHub", category: "technical" },
+    { name: "REST APIs", category: "technical" },
     { name: "Handles Stress Well", category: "soft" },
     { name: "Fast and Accurate", category: "soft" },
     { name: "Active Listener", category: "soft" },

@@ -21,16 +21,13 @@ interface HeroProps {
 }
 
 export function Hero({ compact }: HeroProps) {
-  const { name, tagline, summary, contact, links } = portfolioData;
+  const { name, tagline, summary, contact } = portfolioData;
 
   // Compact mode: used as mobile welcome strip above sidebar
   if (compact) {
     return (
       <section className="relative overflow-hidden bg-gradient-to-br from-violet-50 to-white px-6 py-10 text-center">
         <div className="mx-auto max-w-lg">
-          <div className="mx-auto mb-3 h-16 w-16 rounded-full bg-gradient-to-br from-violet-400 to-violet-600 flex items-center justify-center text-white text-xl font-bold shadow-lg shadow-violet-200">
-            {name.split(' ').map(n => n[0]).join('')}
-          </div>
           <Typography variant="h3" className="text-gray-900 mb-1">
             {name}
           </Typography>
@@ -84,18 +81,6 @@ export function Hero({ compact }: HeroProps) {
               </svg>
               Get in Touch
             </a>
-
-            {links.map((link) => (
-              <a
-                key={link.platform}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-50 hover:border-gray-300 transition-all"
-              >
-                {link.platform}
-              </a>
-            ))}
           </motion.div>
         </motion.div>
       </GlassCard>

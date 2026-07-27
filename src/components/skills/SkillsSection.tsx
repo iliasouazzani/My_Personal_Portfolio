@@ -39,17 +39,23 @@ export function SkillsSection() {
 
           <motion.div
             variants={fadeInUp}
-            className="flex flex-wrap gap-3"
+            className="relative -mx-6 overflow-hidden px-6 sm:-mx-10 sm:px-10"
+            style={{
+              maskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)',
+            }}
           >
-            {technical.map((skill) => (
-              <motion.span
-                key={skill.name}
-                whileHover={{ scale: 1.05, y: -2 }}
-                className="inline-block px-4 py-2 rounded-full bg-white/70 border border-violet-100 text-gray-700 text-sm font-medium shadow-sm hover:border-violet-200 hover:bg-violet-50/50 hover:text-violet-700 transition-all duration-200 cursor-default"
-              >
-                {skill.name}
-              </motion.span>
-            ))}
+            <div className="flex gap-3 marquee-track">
+              {[...technical, ...technical].map((skill, i) => (
+                <motion.span
+                  key={`${skill.name}-${i}`}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  className="inline-block whitespace-nowrap px-4 py-2 rounded-full bg-white/70 border border-violet-100 text-gray-700 text-sm font-medium shadow-sm hover:border-violet-200 hover:bg-violet-50/50 hover:text-violet-700 transition-all duration-200 cursor-default"
+                >
+                  {skill.name}
+                </motion.span>
+              ))}
+            </div>
           </motion.div>
         </div>
 

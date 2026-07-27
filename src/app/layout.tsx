@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { PageLoader } from "@/components/layout/PageLoader";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -11,7 +12,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Ibrahim Ilias Ouazzani | AI Systems | Content Creator | Community",
   description:
-    "Portfolio of Ibrahim Ilias Ouazzani — AI systems builder, content creator, and community contributor. Spanning OpenClaw configuration, NLP chatbots, 27K+ TikTok growth, and major event volunteering.",
+    "Portfolio of Ibrahim Ilias Ouazzani: AI systems builder, content creator, and community contributor. Spanning OpenClaw configuration, NLP chatbots, 27K+ TikTok growth, and major event volunteering.",
   keywords: [
     "Ibrahim Ilias Ouazzani",
     "AI Systems",
@@ -51,7 +52,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="grain-overlay">{children}</body>
+      <body className="grain-overlay">
+        <PageLoader>{children}</PageLoader>
+      </body>
     </html>
   );
 }

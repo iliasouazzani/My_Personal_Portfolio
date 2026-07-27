@@ -7,6 +7,7 @@ import { ProjectsShowcase } from '@/components/projects/ProjectsShowcase';
 import { SkillsSection } from '@/components/skills/SkillsSection';
 import { ContentShowcase } from '@/components/content/ContentShowcase';
 import { VolunteeringSection } from '@/components/volunteering/VolunteeringSection';
+import { GallerySection } from '@/components/gallery/GallerySection';
 import { ContactSection } from '@/components/contact/ContactSection';
 
 export default function Home() {
@@ -35,6 +36,7 @@ export default function Home() {
             <ContentShowcase />
             <SkillsSection />
             <VolunteeringSection />
+            <GallerySection />
             <ContactSection />
           </main>
         </div>

@@ -29,19 +29,12 @@ export function VolunteeringSection() {
           <motion.div key={event.id} variants={fadeInUp}>
             <Card tilt className="p-6">
               <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 h-12 w-12 rounded-xl bg-amber-100 flex items-center justify-center">
-                  <svg
-                    width="22"
-                    height="22"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    className="text-amber-600"
-                  >
-                    <path d="M12 6v6l4 2" />
-                    <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z" />
-                  </svg>
+                <div className="flex-shrink-0 h-12 w-12 rounded-xl bg-violet-100 flex items-center justify-center p-2.5">
+                  <img
+                    src="/icons/stadium-logo.png"
+                    alt="Prince Moulay Abdellah Stadium"
+                    className="h-full w-full object-contain"
+                  />
                 </div>
                 <div className="flex-1 min-w-0">
                   <Typography variant="body" className="font-semibold text-gray-900 mb-1">

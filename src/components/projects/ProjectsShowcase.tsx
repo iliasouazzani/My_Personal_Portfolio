@@ -12,7 +12,7 @@ const projectItems = [
   {
     id: 'ecommerce',
     title: 'E-Commerce Electronics Website',
-    subtitle: 'Internship Project — Vibe-Coded',
+    subtitle: 'Internship Project (Vibe-Coded)',
     description: 'A full-stack e-commerce platform for selling electronics (tablets, phones, headsets, PlayStations), built with heavy AI assistance.',
     highlights: [
       'Built with React, PHP, Symfony, JavaScript & Docker',
@@ -43,7 +43,7 @@ export function ProjectsShowcase() {
       id="projects"
       label="Projects"
       title="Key Projects"
-      subtitle="Projects that showcase technical range — from AI-powered e-commerce to social impact hackathons."
+      subtitle="Projects that showcase technical range, from AI-powered e-commerce to social impact hackathons."
     >
       <motion.div
         variants={staggerContainer}
@@ -97,14 +97,20 @@ export function ProjectsShowcase() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-medium text-violet-600 hover:text-violet-700 transition-colors"
+                    className="flex items-center justify-between gap-2 w-full px-4 py-3 rounded-xl bg-violet-50 border border-violet-100 text-sm font-medium text-violet-700 hover:bg-violet-100 hover:border-violet-200 transition-all group/link"
                   >
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                      <polyline points="15 3 21 3 21 9" />
-                      <line x1="10" y1="14" x2="21" y2="3" />
+                    <span className="flex items-center gap-2">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                        <polyline points="15 3 21 3 21 9" />
+                        <line x1="10" y1="14" x2="21" y2="3" />
+                      </svg>
+                      View on GitHub
+                    </span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform group-hover/link:translate-x-1">
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
                     </svg>
-                    View on GitHub
                   </a>
                 )}
               </div>

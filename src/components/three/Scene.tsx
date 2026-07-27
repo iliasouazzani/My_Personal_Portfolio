@@ -12,8 +12,8 @@ function ParticleField({ count = 80 }: { count?: number }) {
     const pos = new Float32Array(count * 3);
     const siz = new Float32Array(count);
     for (let i = 0; i < count; i++) {
-      pos[i * 3] = (Math.random() - 0.5) * 8;
-      pos[i * 3 + 1] = (Math.random() - 0.5) * 8;
+      pos[i * 3] = (Math.random() - 0.5) * 3.2;
+      pos[i * 3 + 1] = (Math.random() - 0.5) * 3.2;
       pos[i * 3 + 2] = (Math.random() - 0.5) * 4 - 2;
       siz[i] = Math.random() * 2 + 1;
     }
@@ -80,7 +80,7 @@ function FloatingShapes() {
       const geo = geometries[i % geometries.length];
       const theta = Math.random() * Math.PI * 2;
       const phi = Math.acos(2 * Math.random() - 1);
-      const r = 1.5 + Math.random() * 2;
+      const r = 0.6 + Math.random() * 1.3;
       items.push({
         position: [
           r * Math.sin(phi) * Math.cos(theta),
