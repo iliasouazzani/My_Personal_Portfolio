@@ -42,6 +42,16 @@ body {
   animation: grain 0.5s steps(4) infinite;
 }
 
+/* VCard layout */
+.vcard-sidebar {
+  transition: all 0.3s ease;
+}
+
+/* Card sections within vCard layout */
+.vcard-section {
+  scroll-margin-top: 2rem;
+}
+
 /* Mesh gradient backgrounds */
 .mesh-gradient {
   background:

@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import { Typography } from '@/components/ui/Typography';
 
 const navItems = [
   { id: 'experience', label: 'Experience' },
@@ -21,10 +20,10 @@ export function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 150);
 
       const sections = navItems.map((item) => document.getElementById(item.id));
-      const scrollPos = window.scrollY + 150;
+      const scrollPos = window.scrollY + 200;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
@@ -47,108 +46,77 @@ export function Navigation() {
     setMobileOpen(false);
   };
 
+  // Only show when scrolled past hero on desktop
+  if (!scrolled) return null;
+
   return (
     <>
-      <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-        className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
-          scrolled
-            ? 'glass-strong border-b border-gray-100/50'
-            : 'bg-transparent'
-        )}
+      <motion.nav
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        className="hidden lg:flex fixed bottom-8 left-1/2 -translate-x-1/2 z-50 items-center gap-1 bg-white/90 backdrop-blur-xl border border-gray-200/50 rounded-full px-3 py-1.5 soft-shadow"
       >
-        <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-8 lg:px-12">
+        {navItems.map((item) => (
           <button
-            onClick={() => scrollTo('hero')}
-            className="flex items-center gap-2 group"
-            aria-label="Home"
+            key={item.id}
+            onClick={() => scrollTo(item.id)}
+            className={cn(
+              'relative px-3 py-1.5 text-xs font-medium rounded-full transition-colors duration-300',
+              activeSection === item.id
+                ? 'text-violet-600'
+                : 'text-gray-400 hover:text-gray-700'
+            )}
           >
-            <span className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-violet-500 text-white text-sm font-bold transition-transform group-hover:scale-105">
-              IO
-            </span>
-            <span
-              className={cn(
-                'text-sm font-medium transition-opacity hidden sm:block',
-                scrolled ? 'text-gray-900' : 'text-gray-900'
-              )}
-            >
-              I. I. Ouazzani
-            </span>
+            {item.label}
+            {activeSection === item.id && (
+              <motion.div
+                layoutId="mini-nav"
+                className="absolute inset-0 bg-violet-50 rounded-full -z-10"
+                transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+              />
+            )}
           </button>
+        ))}
+      </motion.nav>
 
-          {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-1">
+      {/* Mobile mini FAB nav */}
+      <button
+        onClick={() => setMobileOpen(!mobileOpen)}
+        className={cn(
+          'lg:hidden fixed bottom-6 right-6 z-50 h-12 w-12 rounded-full bg-violet-500 text-white shadow-lg shadow-violet-500/30 flex items-center justify-center transition-all',
+          mobileOpen ? 'rotate-45' : ''
+        )}
+        aria-label="Navigation"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            className="lg:hidden fixed bottom-24 right-6 z-50 bg-white/95 backdrop-blur-xl border border-gray-200 rounded-2xl soft-shadow-lg p-3 min-w-[160px]"
+          >
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.id)}
                 className={cn(
-                  'relative px-4 py-2 text-sm font-medium rounded-full transition-colors duration-300',
+                  'block w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-colors',
                   activeSection === item.id
-                    ? 'text-violet-600'
-                    : 'text-gray-500 hover:text-gray-900'
+                    ? 'text-violet-600 bg-violet-50'
+                    : 'text-gray-600 hover:bg-gray-50'
                 )}
               >
                 {item.label}
-                {activeSection === item.id && (
-                  <motion.div
-                    layoutId="nav-indicator"
-                    className="absolute inset-0 bg-violet-50 rounded-full -z-10"
-                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                  />
-                )}
               </button>
             ))}
-          </div>
-
-          {/* Mobile hamburger */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden relative z-50 flex flex-col gap-1.5 p-2"
-            aria-label="Toggle menu"
-          >
-            <motion.span
-              animate={mobileOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-              className="block h-0.5 w-5 bg-gray-900 rounded-full"
-            />
-            <motion.span
-              animate={mobileOpen ? { opacity: 0 } : { opacity: 1 }}
-              className="block h-0.5 w-5 bg-gray-900 rounded-full"
-            />
-            <motion.span
-              animate={mobileOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-              className="block h-0.5 w-5 bg-gray-900 rounded-full"
-            />
-          </button>
-        </nav>
-      </motion.header>
-
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-40 bg-white/95 backdrop-blur-xl md:hidden"
-          >
-            <div className="flex flex-col items-center justify-center h-full gap-6">
-              {navItems.map((item, i) => (
-                <motion.button
-                  key={item.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.05 }}
-                  onClick={() => scrollTo(item.id)}
-                  className="text-2xl font-medium text-gray-900 hover:text-violet-500 transition-colors"
-                >
-                  {item.label}
-                </motion.button>
-              ))}
-            </div>
           </motion.div>
         )}
       </AnimatePresence>
