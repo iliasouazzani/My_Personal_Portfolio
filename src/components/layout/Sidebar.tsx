@@ -33,7 +33,7 @@ export function Sidebar() {
       variants={staggerContainer}
       initial="hidden"
       animate="visible"
-      className="w-full rounded-2xl bg-white border border-gray-100 soft-shadow-lg overflow-hidden"
+      className="w-full rounded-2xl bg-white/40 backdrop-blur-sm border border-white/30 soft-shadow-lg overflow-hidden"
     >
       {/* Profile header */}
       <div className="relative px-6 pt-8 pb-6 text-center">

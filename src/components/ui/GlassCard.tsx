@@ -37,7 +37,7 @@ export function GlassCard({ children, className, hover3D = true }: GlassCardProp
       onMouseLeave={handleMouseLeave}
       className={cn(
         'relative overflow-hidden rounded-2xl p-6 transition-all duration-200',
-        'bg-white/50 backdrop-blur-xl border border-white/70',
+        'bg-white/30 backdrop-blur-md border border-white/50',
         'soft-shadow-lg',
         className
       )}
