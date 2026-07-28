@@ -48,10 +48,10 @@ export default function Home() {
         <Hero compact />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 lg:py-12">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
-          {/* Sidebar - profile card, sticky on desktop */}
-          <aside className="lg:w-80 xl:w-[22rem] flex-shrink-0">
+      <div className="relative z-10 py-6 lg:py-12">
+        <div className="flex flex-col lg:flex-row">
+          {/* Sidebar - on the left, outside max-w-7xl */}
+          <aside className="w-full lg:w-80 xl:w-[22rem] lg:flex-shrink-0 lg:ml-16 xl:ml-24">
             <div className="lg:sticky lg:top-10 lg:max-h-[calc(100vh-5rem)] lg:overflow-y-auto custom-scrollbar">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -63,8 +63,8 @@ export default function Home() {
             </div>
           </aside>
 
-          {/* Main Content - scrollable sections */}
-          <main className="flex-1 min-w-0">
+          {/* Main Content - centered in remaining space */}
+          <main className="flex-1 min-w-0 max-w-5xl mx-auto px-4 sm:px-6 lg:pr-8 xl:pr-12">
             <motion.div
               variants={staggerContainer}
               initial="hidden"

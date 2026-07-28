@@ -80,6 +80,7 @@ export function SkillsSection() {
                 'AI Agent Setup & Configuration (OpenClaw)',
                 'NLP-Based Chatbot Development',
                 'Python',
+                'Video Editing',
               ].includes(skill.name);
 
               return (
