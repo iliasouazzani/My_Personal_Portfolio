@@ -1,5 +1,34 @@
 import { PortfolioData } from '@/types';
 
+export const projects = [
+  {
+    id: 'ecommerce',
+    title: 'E-Commerce Electronics Website',
+    subtitle: 'Internship Project (Vibe-Coded)',
+    description: 'A full-stack e-commerce platform for selling electronics (tablets, phones, headsets, PlayStations), built with heavy AI assistance.',
+    highlights: [
+      'Built with React, PHP, Symfony, JavaScript & Docker',
+      'NLP-powered chatbot with predefined Q&A (personal contribution)',
+      'Admin dashboard tracking order status: Sold, In Shipping, Shipped, Pending',
+      'Admin system runs via OpenClaw AI agent with distributed computing across 3 Linux machines',
+    ],
+    tags: ['React', 'PHP', 'Symfony', 'JavaScript', 'Docker', 'NLP', 'OpenClaw'],
+    link: 'https://github.com/iliasouazzani/Internship_ecommerce_website',
+  },
+  {
+    id: 'child-guard',
+    title: 'Child Guard',
+    subtitle: 'Hedera Hashgraph Hackathon',
+    description: 'A platform enabling instant missing child declarations, bypassing the standard 24-hour waiting period.',
+    highlights: [
+      'Live demonstration delivery and website development',
+      'NLP chatbot assistant built in Python',
+      'Video edit created for the project presentation',
+    ],
+    tags: ['Python', 'NLP', 'Chatbot', 'Web Development', 'Video Editing'],
+  },
+];
+
 export const portfolioData: PortfolioData = {
   name: "Ibrahim Ilias Ouazzani",
   tagline: "AI Systems Builder | Content Creator | Community Contributor",

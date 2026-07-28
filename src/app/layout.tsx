@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import { PageLoader } from "@/components/layout/PageLoader";
+import { LayoutClient } from "./layout-client";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,6 +32,7 @@ export const metadata: Metadata = {
       "AI systems builder, content creator, and community contributor.",
     type: "website",
     locale: "en_US",
+    siteName: "Ibrahim Ilias Ouazzani Portfolio",
   },
   twitter: {
     card: "summary_large_image",
@@ -53,7 +54,24 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="grain-overlay">
-        <PageLoader>{children}</PageLoader>
+        <LayoutClient>{children}</LayoutClient>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              name: "Ibrahim Ilias Ouazzani",
+              url: "https://iliasouazzani.vercel.app",
+              jobTitle: "AI Systems Builder & Content Creator",
+              email: "iliasouazzani303@gmail.com",
+              telephone: "+212 615153736",
+              knowsLanguage: ["Arabic", "French", "English"],
+              description:
+                "AI systems builder specializing in OpenClaw configuration, NLP chatbot development, and distributed computing. Also a content creator with 27K+ TikTok followers and volunteer at major international events.",
+            }),
+          }}
+        />
       </body>
     </html>
   );

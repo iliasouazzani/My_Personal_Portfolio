@@ -37,6 +37,16 @@ export function Sidebar() {
     >
       {/* Profile header */}
       <div className="relative px-6 pt-8 pb-6 text-center">
+        {/* Profile picture */}
+        <div className="mx-auto mb-4 h-24 w-24 rounded-full overflow-hidden ring-2 ring-violet-200 ring-offset-2">
+          <img
+            src="/images/profile.png"
+            alt={name}
+            className="h-full w-full object-cover"
+            loading="lazy"
+          />
+        </div>
+
         <Typography variant="h4" className="text-gray-900 mb-1">
           {name}
         </Typography>
