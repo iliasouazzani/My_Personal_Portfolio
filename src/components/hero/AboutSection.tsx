@@ -28,7 +28,7 @@ export function AboutSection() {
       >
         {/* Main bio */}
         <motion.div variants={fadeInUp} className="lg:col-span-3">
-          <GlassCard className="p-8 h-full">
+          <GlassCard className="p-6 md:p-8 h-full">
             <TextReveal
               text={summary}
               as="p"

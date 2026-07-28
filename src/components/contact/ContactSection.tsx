@@ -137,7 +137,7 @@ export function ContactSection() {
 
         {/* Contact message / CTA */}
         <motion.div variants={fadeInUp} className="lg:col-span-3">
-          <GlassCard className="p-8 h-full flex flex-col items-center justify-center text-center">
+          <GlassCard className="p-6 md:p-8 h-full flex flex-col items-center justify-center text-center">
             <div className="max-w-md">
               <div className="h-16 w-16 rounded-2xl bg-violet-100 flex items-center justify-center mx-auto mb-6">
                 <svg

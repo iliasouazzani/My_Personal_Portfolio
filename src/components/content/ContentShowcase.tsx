@@ -29,7 +29,7 @@ export function ContentShowcase() {
         {/* Stats Cards */}
         <div className="grid sm:grid-cols-3 gap-6">
           <motion.div variants={scaleIn}>
-            <GlassCard className="text-center p-8">
+            <GlassCard className="text-center p-6 md:p-8">
               <Typography variant="h2" gradient className="font-bold">
                 {formatNumber(contentStats.followers)}+
               </Typography>
@@ -43,7 +43,7 @@ export function ContentShowcase() {
           </motion.div>
 
           <motion.div variants={scaleIn}>
-            <GlassCard className="text-center p-8">
+            <GlassCard className="text-center p-6 md:p-8">
               <Typography variant="h2" gradient className="font-bold">
                 {formatNumber(contentStats.views)}+
               </Typography>
@@ -57,7 +57,7 @@ export function ContentShowcase() {
           </motion.div>
 
           <motion.div variants={scaleIn}>
-            <GlassCard className="text-center p-8">
+            <GlassCard className="text-center p-6 md:p-8">
               <Typography variant="h2" gradient className="font-bold">
                 4
               </Typography>
