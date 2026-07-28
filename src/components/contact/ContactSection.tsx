@@ -52,7 +52,7 @@ export function ContactSection() {
                 <Typography variant="caption" className="text-gray-400">
                   Email
                 </Typography>
-                <Typography variant="body" className="text-gray-900 group-hover:text-violet-600 transition-colors">
+                <Typography variant="body" className="text-gray-900 group-hover:text-violet-600 transition-colors break-all">
                   {contact.email}
                 </Typography>
               </div>
@@ -161,7 +161,9 @@ export function ContactSection() {
                 contribute.
               </Typography>
               <a
-                href={`mailto:${contact.email}?subject=Portfolio%20Inquiry`}
+                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${contact.email}&su=Portfolio%20Inquiry`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-violet-500 text-white rounded-full font-medium hover:bg-violet-600 transition-colors shadow-lg shadow-violet-500/20"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

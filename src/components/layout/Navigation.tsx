@@ -56,7 +56,7 @@ export function Navigation() {
       <motion.nav
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="hidden lg:flex fixed bottom-8 left-1/2 -translate-x-1/2 z-50 items-center gap-1 bg-white/90 backdrop-blur-xl border border-gray-200/50 rounded-full px-3 py-1.5 soft-shadow"
+        className="hidden lg:flex fixed top-4 left-1/2 -translate-x-1/2 z-50 items-center gap-1 bg-white/90 backdrop-blur-xl border border-gray-200/50 rounded-full px-3 py-1.5 soft-shadow"
       >
         {navItems.map((item) => (
           <button

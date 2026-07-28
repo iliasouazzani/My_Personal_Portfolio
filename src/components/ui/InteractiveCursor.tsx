@@ -13,8 +13,8 @@ export function InteractiveCursor() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  const springX = useSpring(cursorX, { stiffness: 300, damping: 30 });
-  const springY = useSpring(cursorY, { stiffness: 300, damping: 30 });
+  const springX = useSpring(cursorX, { stiffness: 800, damping: 45 });
+  const springY = useSpring(cursorY, { stiffness: 800, damping: 45 });
 
   useEffect(() => {
     if (reducedMotion) return;
@@ -56,12 +56,12 @@ export function InteractiveCursor() {
 
   return (
     <>
-      {/* Main cursor ring */}
+      {/* Main cursor ring — smooth follow with subtle delay */}
       <motion.div
         className="pointer-events-none fixed z-[9999] hidden md:block"
         style={{
-          left: springX.get() ? springX.get() - 16 : 0,
-          top: springY.get() ? springY.get() - 16 : 0,
+          left: 0,
+          top: 0,
           x: springX,
           y: springY,
           translateX: '-50%',
@@ -87,12 +87,12 @@ export function InteractiveCursor() {
         />
       </motion.div>
 
-      {/* Cursor dot */}
+      {/* Cursor dot — instant, no delay */}
       <motion.div
         className="pointer-events-none fixed z-[9999] hidden md:block"
         style={{
-          left: cursorX.get() ? cursorX.get() - 3 : 0,
-          top: cursorY.get() ? cursorY.get() - 3 : 0,
+          left: 0,
+          top: 0,
           x: cursorX,
           y: cursorY,
           translateX: '-50%',
