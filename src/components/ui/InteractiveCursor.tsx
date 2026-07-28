@@ -13,8 +13,8 @@ export function InteractiveCursor() {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  const springX = useSpring(cursorX, { stiffness: 300, damping: 30 });
-  const springY = useSpring(cursorY, { stiffness: 300, damping: 30 });
+  const springX = useSpring(cursorX, { stiffness: 500, damping: 28 });
+  const springY = useSpring(cursorY, { stiffness: 500, damping: 28 });
 
   useEffect(() => {
     if (reducedMotion) return;
@@ -22,7 +22,7 @@ export function InteractiveCursor() {
     const handleMouseMove = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
-      if (!isVisible) setIsVisible(true);
+      setIsVisible(true);
     };
 
     const handleMouseOver = (e: MouseEvent) => {
@@ -50,18 +50,16 @@ export function InteractiveCursor() {
       window.removeEventListener('mouseup', handleMouseUp);
       document.documentElement.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, [reducedMotion, isVisible, cursorX, cursorY]);
+  }, [reducedMotion, cursorX, cursorY]);
 
   if (reducedMotion || typeof window === 'undefined') return null;
 
   return (
     <>
-      {/* Main cursor ring */}
+      {/* Main cursor ring — only x/y transform, no left/top conflict */}
       <motion.div
         className="pointer-events-none fixed z-[9999] hidden md:block"
         style={{
-          left: springX.get() ? springX.get() - 16 : 0,
-          top: springY.get() ? springY.get() - 16 : 0,
           x: springX,
           y: springY,
           translateX: '-50%',
@@ -74,25 +72,21 @@ export function InteractiveCursor() {
             height: isClicking ? 20 : isHovering ? 48 : 32,
             borderColor: isHovering
               ? 'rgba(109, 74, 255, 0.4)'
-              : 'rgba(109, 74, 255, 0.2)',
+              : 'rgba(109, 74, 255, 0.25)',
             backgroundColor: isHovering
-              ? 'rgba(109, 74, 255, 0.04)'
+              ? 'rgba(109, 74, 255, 0.06)'
               : 'transparent',
           }}
-          transition={{ type: 'spring', stiffness: 300, damping: 25 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 28 }}
           className="rounded-full border"
-          style={{
-            borderWidth: isHovering ? 1.5 : 1,
-          }}
+          style={{ borderWidth: isHovering ? 1.5 : 1 }}
         />
       </motion.div>
 
-      {/* Cursor dot */}
+      {/* Cursor dot — same fix */}
       <motion.div
         className="pointer-events-none fixed z-[9999] hidden md:block"
         style={{
-          left: cursorX.get() ? cursorX.get() - 3 : 0,
-          top: cursorY.get() ? cursorY.get() - 3 : 0,
           x: cursorX,
           y: cursorY,
           translateX: '-50%',
@@ -101,14 +95,14 @@ export function InteractiveCursor() {
       >
         <motion.div
           animate={{
-            width: isClicking ? 4 : isHovering ? 6 : 6,
-            height: isClicking ? 4 : isHovering ? 6 : 6,
+            width: isClicking ? 4 : isHovering ? 6 : 5,
+            height: isClicking ? 4 : isHovering ? 6 : 5,
             opacity: isVisible ? 1 : 0,
             backgroundColor: isHovering
-              ? 'rgba(109, 74, 255, 0.8)'
-              : 'rgba(109, 74, 255, 0.6)',
+              ? 'rgba(109, 74, 255, 0.9)'
+              : 'rgba(109, 74, 255, 0.7)',
           }}
-          transition={{ duration: 0.15 }}
+          transition={{ duration: 0.1 }}
           className="rounded-full"
         />
       </motion.div>

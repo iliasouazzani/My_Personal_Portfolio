@@ -50,9 +50,20 @@ export default function Home() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 lg:py-12">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
-          {/* Sidebar - profile card, sticky on desktop */}
-          <aside className="lg:w-80 xl:w-[22rem] flex-shrink-0">
-            <div className="lg:sticky lg:top-10 lg:max-h-[calc(100vh-5rem)] lg:overflow-y-auto custom-scrollbar">
+          {/* Sidebar - profile card, sticky on desktop, pushed to left edge */}
+          <aside className="lg:w-80 xl:w-[22rem] flex-shrink-0 lg:-ml-4 xl:-ml-8">
+            <div
+              className="lg:sticky lg:top-10 lg:max-h-[calc(100vh-5rem)] overflow-y-auto custom-scrollbar"
+              style={{ overscrollBehavior: 'contain' }}
+              onWheel={(e) => {
+                const el = e.currentTarget;
+                const atTop = el.scrollTop === 0;
+                const atBottom = el.scrollHeight - el.scrollTop === el.clientHeight;
+                if ((atTop && e.deltaY < 0) || (atBottom && e.deltaY > 0)) {
+                  e.stopPropagation();
+                }
+              }}
+            >
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
