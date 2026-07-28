@@ -14,6 +14,7 @@ const navItems = [
   { id: 'content', label: 'Content' },
   { id: 'skills', label: 'Skills' },
   { id: 'volunteering', label: 'Volunteering' },
+  { id: 'gallery', label: 'Gallery' },
   { id: 'contact', label: 'Contact' },
 ];
 
@@ -36,9 +37,14 @@ export function Sidebar() {
     >
       {/* Profile header */}
       <div className="relative px-6 pt-8 pb-6 text-center">
-        {/* Avatar placeholder */}
-        <div className="mx-auto mb-4 h-24 w-24 rounded-full bg-gradient-to-br from-violet-400 to-violet-600 flex items-center justify-center text-white text-3xl font-bold shadow-lg shadow-violet-200">
-          {name.split(' ').map(n => n[0]).join('')}
+        {/* Profile picture */}
+        <div className="mx-auto mb-4 h-24 w-24 rounded-full overflow-hidden ring-2 ring-violet-200 ring-offset-2">
+          <img
+            src="/images/profile.png"
+            alt={name}
+            className="h-full w-full object-cover"
+            loading="lazy"
+          />
         </div>
 
         <Typography variant="h4" className="text-gray-900 mb-1">

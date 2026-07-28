@@ -17,7 +17,7 @@ export function ContentShowcase() {
       id="content"
       label="Content Creation"
       title="Video Editing & Growth"
-      subtitle="From zero to 27,000 followers in 4 months — reaching over 20 million views with football edits and motivational content."
+      subtitle="From zero to 27,000 followers in 4 months, reaching over 20 million views with football edits and motivational content."
     >
       <motion.div
         variants={staggerContainer}
