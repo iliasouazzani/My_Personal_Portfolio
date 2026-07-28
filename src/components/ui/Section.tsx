@@ -26,7 +26,7 @@ export function Section({
   fullWidth = false,
 }: SectionProps) {
   return (
-    <section id={id} className={cn('relative py-12 md:py-16', className)}>
+    <section id={id} className={cn('relative py-8 md:py-16', className)}>
       <div className={cn(!fullWidth && 'mx-auto max-w-5xl')}>
         {(label || title) && (
           <motion.div

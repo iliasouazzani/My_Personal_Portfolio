@@ -37,8 +37,10 @@ function Scene3DWrapper() {
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#faf8f5]">
-      {/* 3D Scene Background - behind everything */}
-      <Scene3DWrapper />
+      {/* 3D Scene Background - behind everything, hidden on mobile for performance */}
+      <div className="hidden lg:block">
+        <Scene3DWrapper />
+      </div>
 
       {/* Floating AI Assistant */}
       <FloatingAIAssistant />
@@ -64,7 +66,7 @@ export default function Home() {
           </aside>
 
           {/* Main Content - centered in remaining space */}
-          <main className="flex-1 min-w-0 max-w-5xl mx-auto px-4 sm:px-6 lg:pr-8 xl:pr-12">
+          <main className="flex-1 min-w-0 max-w-5xl mx-auto px-4 sm:px-6 lg:pr-8 xl:pr-12 pb-8 md:pb-0">
             <motion.div
               variants={staggerContainer}
               initial="hidden"

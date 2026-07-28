@@ -36,9 +36,9 @@ export function Sidebar() {
       className="w-full rounded-2xl bg-white/40 backdrop-blur-sm border border-white/30 soft-shadow-lg overflow-hidden"
     >
       {/* Profile header */}
-      <div className="relative px-6 pt-8 pb-6 text-center">
+      <div className="relative px-4 md:px-6 pt-6 md:pt-8 pb-4 md:pb-6 text-center">
         {/* Profile picture */}
-        <div className="mx-auto mb-4 h-24 w-24 rounded-full overflow-hidden ring-2 ring-violet-200 ring-offset-2">
+        <div className="mx-auto mb-3 md:mb-4 h-20 md:h-24 w-20 md:w-24 rounded-full overflow-hidden ring-2 ring-violet-200 ring-offset-2">
           <img
             src="/images/profile.png"
             alt={name}
@@ -59,10 +59,10 @@ export function Sidebar() {
       </div>
 
       {/* Divider */}
-      <div className="mx-6 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+      <div className="mx-4 md:mx-6 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
 
       {/* Contact quick info */}
-      <div className="px-6 py-5 space-y-3">
+      <div className="px-4 md:px-6 py-3 md:py-5 space-y-2 md:space-y-3">
         <a href={`mailto:${contact.email}`} className="flex items-center gap-3 text-sm text-gray-600 hover:text-violet-600 transition-colors group">
           <span className="flex-shrink-0 h-8 w-8 rounded-lg bg-violet-50 flex items-center justify-center group-hover:bg-violet-100 transition-colors">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-violet-500">
@@ -99,10 +99,10 @@ export function Sidebar() {
       </div>
 
       {/* Divider */}
-      <div className="mx-6 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+      <div className="mx-4 md:mx-6 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
 
       {/* Languages */}
-      <div className="px-6 py-5">
+      <div className="px-4 md:px-6 py-3 md:py-5">
         <Typography variant="caption" className="block mb-3 font-semibold text-gray-500 uppercase tracking-wider text-xs">
           Languages
         </Typography>
@@ -119,10 +119,10 @@ export function Sidebar() {
       </div>
 
       {/* Divider */}
-      <div className="mx-6 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+      <div className="mx-4 md:mx-6 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
 
       {/* Section navigation */}
-      <nav className="px-6 py-5">
+      <nav className="px-4 md:px-6 py-3 md:py-5">
         <Typography variant="caption" className="block mb-3 font-semibold text-gray-500 uppercase tracking-wider text-xs">
           On This Page
         </Typography>
