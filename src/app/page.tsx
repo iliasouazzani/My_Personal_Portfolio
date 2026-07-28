@@ -52,7 +52,7 @@ export default function Home() {
         <div className="flex flex-col lg:flex-row">
           {/* Sidebar - on the left, outside max-w-7xl */}
           <aside className="w-full lg:w-80 xl:w-[22rem] lg:flex-shrink-0 lg:ml-16 xl:ml-24">
-            <div className="lg:sticky lg:top-10 lg:max-h-[calc(100vh-5rem)] lg:overflow-y-auto custom-scrollbar">
+            <div className="lg:sticky lg:top-10">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

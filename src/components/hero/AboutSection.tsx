@@ -131,7 +131,9 @@ export function AboutSection() {
               community-focused positions. Based in Rabat, Morocco.
             </Typography>
             <motion.a
-              href={`mailto:${contact.email}?subject=Portfolio%20Inquiry`}
+              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${contact.email}&su=Portfolio%20Inquiry`}
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-2 mt-4 px-5 py-2.5 bg-violet-500 text-white rounded-full text-sm font-medium hover:bg-violet-600 transition-colors shadow-lg shadow-violet-500/20"
